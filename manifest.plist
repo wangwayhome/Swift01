@@ -11,7 +11,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://raw.githubusercontent.com/wangwayhome/Swift01/master/TCPDEMO.ipa</string>
+					<string>http://wangwayhome.d.wcsapi.biz.matocloud.com/TCPDEMO.ipa</string>
 				</dict>
 			</array>
 			<key>metadata</key>
