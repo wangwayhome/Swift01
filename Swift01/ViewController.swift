@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class ViewController: UIViewController {
     
     @IBOutlet var textView: UITextView!
@@ -200,8 +199,7 @@ class ViewController: UIViewController {
         print(mappedNumbers)
         
         //你可以通过参数位置而不是参数名字来引用参数——这个方法在非常短的闭包中非常有用。当一个闭包作为最后
-        //一个参数传给一个函数的时候，它可以直接跟在括号后面。当一个闭包是传给函数的唯一参数，你可以完全忽略
-        //括号。
+        //一个参数传给一个函数的时候，它可以直接跟在括号后面。当一个闭包是传给函数的唯一参数，你可以完全忽略括号
         //唯一一个参数的情况下，作者估计觉得括号实在太尼玛多了，就去掉了。
         //提出一点小小的吐槽，这样的语法，我是在看不出有啥优越性，可读性略差。而且还不如oc 来得严谨。实在是跪了。同样的功能，我感觉oc的闭包写起来更加优雅。
         
@@ -216,6 +214,9 @@ class ViewController: UIViewController {
 
         print(repeatItem(repeating: "knock", numberOfTimes:4))
         
+        
+        //_________________
+        classTest()
     }
     
 
@@ -301,4 +302,49 @@ class ViewController: UIViewController {
 
     
 }
+
+//类的测试
+
+func classTest(){
+    let test = Square(sideLength: 5.2, name: "my test square")
+    test.area()
+    print( test.simpleDescription())
+    
+    
+    var triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
+    print(triangle.perimeter)
+    triangle.perimeter = 9.9
+    print(triangle.sideLength)
+    
+    var triangleAndSquare = TriangleAndSquare(size: 10, name: "another test shape")
+    print(triangleAndSquare.square.sideLength)
+    print(triangleAndSquare.triangle.sideLength)
+    triangleAndSquare.square = Square(sideLength: 50, name: "larger square")
+    print(triangleAndSquare.triangle.sideLength)
+    print(triangleAndSquare.square.sideLength)
+    
+    //问好判断是不是存在，不为nil 才执行问号后面的东东。
+    let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
+    let sideLength = optionalSquare?.sideLength
+    
+}
+
+//结构体和枚举 没啥好说的
+//1、在 switch 里，枚举成员使用缩写 .Hearts 来引用，2、枚举可以包含方法。
+enum Suit {
+    case Spades, Hearts, Diamonds, Clubs
+    func simpleDescription() -> String {
+        switch self {
+        case .Spades:
+            return "spades"
+        case .Hearts:
+            return "hearts"
+        case .Diamonds:
+            return "diamonds"
+        case .Clubs:
+            return "clubs"
+        }
+    } }
+//let hearts = Suit.Hearts
+//let heartsDescription = hearts.simpleDescription()
 
